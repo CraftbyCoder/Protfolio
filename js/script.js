@@ -561,6 +561,156 @@ document.addEventListener('DOMContentLoaded', function() {
             `
         }
     };
+    // Add to the testStrategies object in js/script.js
+testStrategies['api-docs'] = {
+    title: 'API Testing Project - Documentation',
+    content: `
+        <div class="api-documentation">
+            <div class="strategy-header">
+                <h3>Custom REST API Testing - Complete Documentation</h3>
+                <p>Detailed API endpoints, testing scenarios, and implementation guidelines</p>
+            </div>
+            
+            <div class="testing-instructions">
+                <h5>Project Setup & Testing</h5>
+                <ol>
+                    <li>Clone the repository: <code>git clone https://github.com/CraftbyCoder/APITesting.git</code></li>
+                    <li>Install dependencies: <code>npm install</code></li>
+                    <li>Start the server: <code>npm start</code></li>
+                    <li>Server runs on: <code>http://localhost:3000</code></li>
+                    <li>Use Postman or any API client to test endpoints</li>
+                </ol>
+            </div>
+            
+            <div class="api-endpoint">
+                <div class="endpoint-header">
+                    <span class="endpoint-method get">GET</span>
+                    <span class="endpoint-path">/api/users</span>
+                </div>
+                <p class="endpoint-description">Retrieve all users from the mock database</p>
+                
+                <div class="example-title">Example Request:</div>
+                <div class="endpoint-example">
+                    GET http://localhost:3000/api/users
+                </div>
+                
+                <div class="example-title">Example Response (200 OK):</div>
+                <div class="endpoint-example">
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "role": "user"
+    }
+  ]
+}
+                </div>
+            </div>
+            
+            <div class="api-endpoint">
+                <div class="endpoint-header">
+                    <span class="endpoint-method get">GET</span>
+                    <span class="endpoint-path">/api/users/:id</span>
+                </div>
+                <p class="endpoint-description">Retrieve a specific user by ID</p>
+                
+                <div class="example-title">Testing Scenarios:</div>
+                <ul>
+                    <li><strong>Valid ID:</strong> Returns user data (200 OK)</li>
+                    <li><strong>Invalid ID:</strong> Returns error (404 Not Found)</li>
+                    <li><strong>Non-numeric ID:</strong> Returns error (400 Bad Request)</li>
+                </ul>
+            </div>
+            
+            <div class="api-endpoint">
+                <div class="endpoint-header">
+                    <span class="endpoint-method post">POST</span>
+                    <span class="endpoint-path">/api/users</span>
+                </div>
+                <p class="endpoint-description">Create a new user in the database</p>
+                
+                <div class="example-title">Request Body (JSON):</div>
+                <div class="endpoint-example">
+{
+  "name": "New User",
+  "email": "newuser@example.com",
+  "role": "user"
+}
+                </div>
+                
+                <div class="example-title">Testing Scenarios:</div>
+                <ul>
+                    <li><strong>Valid data:</strong> Creates user (201 Created)</li>
+                    <li><strong>Missing required fields:</strong> Error (400 Bad Request)</li>
+                    <li><strong>Invalid email format:</strong> Error (400 Bad Request)</li>
+                    <li><strong>Duplicate email:</strong> Error (409 Conflict)</li>
+                </ul>
+            </div>
+            
+            <div class="api-endpoint">
+                <div class="endpoint-header">
+                    <span class="endpoint-method put">PUT</span>
+                    <span class="endpoint-path">/api/users/:id</span>
+                </div>
+                <p class="endpoint-description">Update an existing user (complete update)</p>
+                
+                <div class="example-title">Testing Scenarios:</div>
+                <ul>
+                    <li><strong>Valid ID with complete data:</strong> Updates user (200 OK)</li>
+                    <li><strong>Non-existent ID:</strong> Error (404 Not Found)</li>
+                    <li><strong>Missing required fields:</strong> Error (400 Bad Request)</li>
+                </ul>
+            </div>
+            
+            <div class="api-endpoint">
+                <div class="endpoint-header">
+                    <span class="endpoint-method delete">DELETE</span>
+                    <span class="endpoint-path">/api/users/:id</span>
+                </div>
+                <p class="endpoint-description">Delete a user from the database</p>
+                
+                <div class="example-title">Testing Scenarios:</div>
+                <ul>
+                    <li><strong>Valid ID:</strong> Deletes user (200 OK)</li>
+                    <li><strong>Non-existent ID:</strong> Error (404 Not Found)</li>
+                    <li><strong>Already deleted user:</strong> Error (410 Gone)</li>
+                </ul>
+            </div>
+            
+            <div class="postman-guide">
+                <h5>Postman Testing Guide</h5>
+                <ol>
+                    <li>Import the Postman collection from the repository</li>
+                    <li>Set up environment variables for base URL</li>
+                    <li>Run test collection to validate all endpoints</li>
+                    <li>Check response status codes and body structure</li>
+                    <li>Validate error handling with invalid requests</li>
+                </ol>
+            </div>
+            
+            <div class="testing-instructions">
+                <h5>Testing Checklist</h5>
+                <ul>
+                    <li>✓ All HTTP methods work correctly</li>
+                    <li>✓ Proper status codes for success and error scenarios</li>
+                    <li>✓ Request validation for required fields</li>
+                    <li>✓ Error messages are clear and informative</li>
+                    <li>✓ Data integrity maintained after CRUD operations</li>
+                    <li>✓ Edge cases handled properly</li>
+                </ul>
+            </div>
+        </div>
+    `
+};
     
     // Add CSS for modal content
     const modalStyle = document.createElement('style');
